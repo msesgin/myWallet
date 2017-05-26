@@ -1,0 +1,47 @@
+
+<div *ngIf="userCards">
+    <h2><span jhiTranslate="myWalletApp.userCards.detail.title">User Cards</span> {{userCards.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myWalletApp.userCards.creditCardNumber">Credit Card Number</span></dt>
+        <dd>
+            <span>{{userCards.creditCardNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userCards.lastUsageMonth">Last Usage Month</span></dt>
+        <dd>
+            <span>{{userCards.lastUsageMonth}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userCards.lastUsageYear">Last Usage Year</span></dt>
+        <dd>
+            <span>{{userCards.lastUsageYear}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userCards.cvv">Cvv</span></dt>
+        <dd>
+            <span>{{userCards.cvv}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userCards.user">User</span></dt>
+        <dd>
+            {{userCards.userLogin}}
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userCards.toAccount">To Account</span></dt>
+        <dd>
+            <div *ngIf="userCards.toAccountId">
+                <a [routerLink]="['/user-account', userCards.toAccountId]">{{userCards.toAccountAccountName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+  <!--   <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-cards/'+ userCards.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button> -->
+</div>

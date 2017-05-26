@@ -1,0 +1,111 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUserCardsLabel" jhiTranslate="myWalletApp.userCards.home.createOrEditLabel">Create or edit a User Cards</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!userCards.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="userCards.id" readonly />
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="myWalletApp.userCards.toAccount" for="field_toAccount">To Account</label>
+            <select class="form-control" id="field_toAccount" name="toAccount" [(ngModel)]="userCards.toAccountId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userAccountOption.id" *ngFor="let userAccountOption of useraccounts; trackBy: trackUserAccountById">{{userAccountOption.accountName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myWalletApp.userCards.creditCardNumber" for="field_creditCardNumber">Credit Card Number</label>
+            <input type="text" class="form-control" name="creditCardNumber" id="field_creditCardNumber"
+                [(ngModel)]="userCards.creditCardNumber"
+            required minlength="16" maxlength="16" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+            <div [hidden]="!(editForm.controls.creditCardNumber?.dirty && editForm.controls.creditCardNumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.creditCardNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.creditCardNumber?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 16 }">
+                   This field is required to be at least 16 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.creditCardNumber?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 16 }">
+                   This field cannot be longer than 16 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myWalletApp.userCards.lastUsageMonth" for="field_lastUsageMonth">Last Usage Month</label>
+            <input type="text" class="form-control" name="lastUsageMonth" id="field_lastUsageMonth"
+                [(ngModel)]="userCards.lastUsageMonth"
+            required minlength="2" maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+            <div [hidden]="!(editForm.controls.lastUsageMonth?.dirty && editForm.controls.lastUsageMonth?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageMonth?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageMonth?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageMonth?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2 }">
+                   This field cannot be longer than 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myWalletApp.userCards.lastUsageYear" for="field_lastUsageYear">Last Usage Year</label>
+            <input type="text" class="form-control" name="lastUsageYear" id="field_lastUsageYear"
+                [(ngModel)]="userCards.lastUsageYear"
+            required minlength="2" maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+            <div [hidden]="!(editForm.controls.lastUsageYear?.dirty && editForm.controls.lastUsageYear?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageYear?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageYear?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUsageYear?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2 }">
+                   This field cannot be longer than 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myWalletApp.userCards.cvv" for="field_cvv">Cvv</label>
+            <input type="text" class="form-control" name="cvv" id="field_cvv"
+                [(ngModel)]="userCards.cvv"
+            required minlength="3" maxlength="3" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+            <div [hidden]="!(editForm.controls.cvv?.dirty && editForm.controls.cvv?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cvv?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cvv?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">
+                   This field is required to be at least 3 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cvv?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 3 }">
+                   This field cannot be longer than 3 characters.
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

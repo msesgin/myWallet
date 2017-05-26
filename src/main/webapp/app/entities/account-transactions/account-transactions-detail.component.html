@@ -1,0 +1,46 @@
+
+<div *ngIf="accountTransactions">
+    <h2><span jhiTranslate="myWalletApp.accountTransactions.detail.title">Account Transactions</span> {{accountTransactions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myWalletApp.accountTransactions.amount">Amount</span></dt>
+        <dd>
+            <span>{{accountTransactions.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.accountTransactions.fromUserEmail">From User Email</span></dt>
+        <dd>
+            {{accountTransactions.fromUserEmailLogin}}
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.accountTransactions.toUserEmail">To User Email</span></dt>
+        <dd>
+            {{accountTransactions.toUserEmailLogin}}
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.accountTransactions.fromAccount">From Account</span></dt>
+        <dd>
+            <div *ngIf="accountTransactions.fromAccountId">
+                <a [routerLink]="['/user-account', accountTransactions.fromAccountId]">{{accountTransactions.fromAccountAccountName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.accountTransactions.toAccount">To Account</span></dt>
+        <dd>
+            <div *ngIf="accountTransactions.toAccountId">
+                <a [routerLink]="['/user-account', accountTransactions.toAccountId]">{{accountTransactions.toAccountAccountName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+  <!--  <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'account-transactions/'+ accountTransactions.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+  -->    
+</div>

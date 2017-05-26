@@ -1,0 +1,32 @@
+
+<div *ngIf="cardTransactions">
+    <h2><span jhiTranslate="myWalletApp.cardTransactions.detail.title">Card Transactions</span> {{cardTransactions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myWalletApp.cardTransactions.amount">Amount</span></dt>
+        <dd>
+            <span>{{cardTransactions.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.cardTransactions.creditCardNumber">Credit Card Number</span></dt>
+        <dd>
+            <div *ngIf="cardTransactions.creditCardNumberId">
+                <a [routerLink]="['/user-cards', cardTransactions.creditCardNumberId]">{{cardTransactions.creditCardNumberCreditCardNumber}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+   <!--  <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'card-transactions/'+ cardTransactions.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+     -->
+</div>

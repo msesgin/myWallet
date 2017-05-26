@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+		{
+            "relationshipName": "fromUserEmail",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "fromUser"
+        },
+        {
+            "relationshipName": "toUserEmail",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "toUser"
+        },
+		{
+            "relationshipName": "fromAccount",
+            "otherEntityName": "userAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "accountName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "fromUserAccount"
+        },
+        {
+            "relationshipName": "toAccount",
+            "otherEntityName": "userAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "accountName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "toUserAccount"
+        }
+	],
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170513103613",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "account_transactions",
+    "pagination": "pagination"
+}

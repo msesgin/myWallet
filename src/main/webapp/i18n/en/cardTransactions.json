@@ -1,0 +1,22 @@
+{
+    "myWalletApp": {
+        "cardTransactions" : {
+            "home": {
+                "title": "Card Transactions",
+                "createLabel": "Create a new Card Transactions",
+                "createOrEditLabel": "Create or edit a Card Transactions"
+            },
+            "created": "A new Card Transactions is created with identifier {{ param }}",
+            "updated": "A Card Transactions is updated with identifier {{ param }}",
+            "deleted": "A Card Transactions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Card Transactions {{ id }}?"
+            },
+            "detail": {
+                "title": "Card Transactions"
+            },
+            "amount": "Amount",
+            "creditCardNumber": "Credit Card Number"
+        }
+    }
+}

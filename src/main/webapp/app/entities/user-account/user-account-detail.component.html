@@ -1,0 +1,40 @@
+
+<div *ngIf="userAccount">
+    <h2><span jhiTranslate="myWalletApp.userAccount.detail.title">User Account</span> {{userAccount.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myWalletApp.userAccount.user">User</span></dt>
+        <dd>
+            {{userAccount.userLogin}}
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userAccount.accountName">Account Name</span></dt>
+        <dd>
+            <span>{{userAccount.accountName}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userAccount.balance">Balance</span></dt>
+        <dd>
+            <span>{{userAccount.balance}}</span>
+        </dd>
+        <dt><span jhiTranslate="myWalletApp.userAccount.currency">Currency</span></dt>
+        <dd>
+            <div *ngIf="userAccount.currencyId">
+                <a [routerLink]="['/currency', userAccount.currencyId]">{{userAccount.currencyCurrencyCode}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+  <!--   <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-account/'+ userAccount.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+   -->  
+</div>

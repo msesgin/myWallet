@@ -1,0 +1,85 @@
+<div>
+    <h2>
+        <span jhiTranslate="myWalletApp.accountTransactions.home.title">Account Transactions</span>
+        <button class="btn btn-primary float-right create-account-transactions" [routerLink]="['/', { outlets: { popup: ['account-transactions-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="myWalletApp.accountTransactions.home.createLabel">
+            Create new Account Transactions
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="accountTransactions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fromUserEmailLogin"><span jhiTranslate="myWalletApp.accountTransactions.fromUserEmail">From User Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fromAccountAccountName"><span jhiTranslate="myWalletApp.accountTransactions.fromAccount">From Account</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="toUserEmailLogin"><span jhiTranslate="myWalletApp.accountTransactions.toUserEmail">To User Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="toAccountAccountName"><span jhiTranslate="myWalletApp.accountTransactions.toAccount">To Account</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amount"><span jhiTranslate="myWalletApp.accountTransactions.amount">Amount</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let accountTransactions of accountTransactions ;trackBy: trackId">
+                <td><a [routerLink]="['../account-transactions', accountTransactions.id ]">{{accountTransactions.id}}</a></td>
+                <td>
+                    {{accountTransactions.fromUserEmailLogin}}
+                </td>
+                <td>
+                    <div *ngIf="accountTransactions.fromAccountId">
+                        <a [routerLink]="['../user-account', accountTransactions.fromAccountId  ]" >{{accountTransactions.fromAccountAccountName}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{accountTransactions.toUserEmailLogin}}
+                </td>
+                <td>
+                    <div *ngIf="accountTransactions.toAccountId">
+                        <a [routerLink]="['../user-account', accountTransactions.toAccountId  ]" >{{accountTransactions.toAccountAccountName}}</a>
+                    </div>
+                </td>
+                <td>{{accountTransactions.amount}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../account-transactions', accountTransactions.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+           			<!-- <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'account-transactions/'+ accountTransactions.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'account-transactions/'+ accountTransactions.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    -->             
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="accountTransactions && accountTransactions.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+		{
+            "relationshipName": "creditCardNumber",
+            "otherEntityName": "userCards",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "creditCardNumber",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cardTransfer"
+        }
+	],
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170513103613",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "card_transactions",
+    "pagination": "pagination"
+}

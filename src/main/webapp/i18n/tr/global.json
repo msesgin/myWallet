@@ -1,0 +1,138 @@
+{
+    "global": {
+        "title": "MyWallet",
+        "browsehappy": "<strong>Çok eski</strong> bir tarayıcı kullanıyorsunuz. Lütfen kullanım kalitenizi arttırmak için <a href=\"http://browsehappy.com/?locale=tr\">tarayıcınızı yükseltin</a>.",
+        "menu": {
+            "home": "Ana Sayfa",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Varlıklar",
+                "currency": "Currency",
+                "userAccount": "User Account",
+                "userCards": "User Cards",
+                "accountTransactions": "Account Transactions",
+                "cardTransactions": "Card Transactions",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "account": {
+                "main": "Hesap",
+                "settings": "Ayarlar",
+                "password": "Şifre",
+                "sessions": "Oturumlar",
+                "login": "Giriş",
+                "logout": "Çıkış",
+                "register": "Kayıt"
+            },
+            "admin": {
+                "main": "Yönetim",
+                "userManagement": "User management",
+                "tracker": "Kullanıcı Takip",
+                "metrics": "Ã–lçümler",
+                "health": "Heath",
+                "configuration": "Yapılandırma",
+                "logs": "Kayıtlar",
+                "audits": "Denetim",
+                "apidocs": "API",
+                "database": "Veritabanı",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "Dil"
+        },
+        "form": {
+            "username": "Kullanıcı Adı",
+            "username.placeholder": "Kullanıcı Adınız",
+            "newpassword": "Yeni Şifre",
+            "newpassword.placeholder": "Yeni Şifre",
+            "confirmpassword": "Yeni Şifre Tekrar",
+            "confirmpassword.placeholder": "Yeni Şifre Tekrar",
+            "email": "E-posta",
+            "email.placeholder": "E-posta adresiniz"
+        },
+        "messages": {
+            "info": {
+                "authenticated": {
+                    "prefix": "",
+                    "link": "Giriş",
+                    "suffix": " yapmak istiyorsanız, varsayılan hesaplardan birini deneyebilirsiniz:<br/>- Yönetici (kullanıcı adı=\"admin\" ve şifre=\"admin\") <br/>- Kullanıcı (kullanıcı adı=\"user\" and şifre=\"user\")."
+                },
+                "register": {
+                    "noaccount": "YHenüz bir hesabınız yok mu?",
+                    "link": "Yeni hesap oluştur"
+                }
+            },
+            "error": {
+                "dontmatch" : "Şifreler eşleşmedi!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Şifre zorunlu alandır.",
+                    "minlength": "Şifreniz en az 5 karakter olmak zorundadır",
+                    "maxlength": "Şifreniz 50 karakterden uzun olamaz",
+                    "strength": "Şifre karmaşıklığı:"
+                },
+                "confirmpassword": {
+                    "required": "Tekrar şifresi zorunludur.",
+                    "minlength": "Tekrar şifreniz en az 5 karakter olmalıdır",
+                    "maxlength": "Tekrar şifreniz 50 karakterden uzun olamaz"
+                },
+                "email": {
+                    "required": "E-posta zorunlu alandır.",
+                    "invalid": "E-posta alanı uygun değil.",
+                    "minlength": "E-posta adresi en az 5 karakter olmalıdır",
+                    "maxlength": "E-posta adresi 50 karakterden fazla olamaz"
+                }
+            }
+        },
+        "field": {
+            "id" : "ID"
+        },
+        "ribbon": {
+            "dev":"Development"
+        }
+    },
+    "entity": {
+        "action": {
+            "addblob": "Add blob",
+            "addimage": "Resim Ekle",
+            "back": "Geri",
+            "cancel": "İptal",
+            "delete": "Sil",
+            "edit": "Düzenle",
+            "open": "Open",
+            "save": "Kaydet",
+            "view": "Görüntüle"
+        },
+        "detail": {
+            "field": "Alan",
+            "value": "Değer"
+        },
+        "delete": {
+            "title": "Silme işlemini onayla"
+        },
+        "validation": {
+            "required": "Bu alan gerekli.",
+            "minlength": "Bu alan minimum {{min}} karakterden oluşabilir.",
+            "maxlength": "Bu alan maksimum {{max}} karakterden oluşabilir.",
+            "min": "Bu alan minimum {{min}} olmalı.",
+            "max": "Bu alan maksimum {{max}} olmalı.",
+            "minbytes": "Bu alanan minimum {{min}} byte olmalı.",
+            "maxbytes": "Bu alan maksimum {{max}} byte olmalı.",
+            "pattern": "Bu alan {{pattern}} şablonuna uymuyor.",
+            "number": "Bu alan numara içermeli.",
+            "datetimelocal": "Bu alan tarih veya zaman içermeli."
+        }
+    },
+    "error": {
+        "internalServerError": "Internal server error",
+        "server.not.reachable": "Sunucuya ulaşılamıyor",
+        "url.not.found": "Not found",
+        "NotNull": "{{fieldName}} alanı boş bırakılamaz!",
+        "Size": "{{fieldName}} alanı min/max gerekliliklere uymuyor!",
+        "userexists": "Login name already used!",
+        "emailexists": "Email is already in use!",
+        "idexists": "A new {{entityName}} cannot already have an ID",
+        "negativeBalance": "Hesap bakiyesi negatif olamaz",
+        "lastUsageMonthMax": "Son Kullanım Ay bilgisi 12 den yüksek olamaz"
+    },
+    "footer": "Burası sayfa alt bilgisi"
+}
