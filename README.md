@@ -23,6 +23,8 @@ auto-refreshes when files change on your hard drive.
     ./gradlew
     yarn start
 
+PS: Because of bowersync proxy problems social signin can only work from 8080 port.
+
 [Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
 specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
 Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
@@ -49,6 +51,19 @@ Refer to [Using JHipster in production][] for more details.
 To launch your application's tests, run:
 
     ./gradlew test    
+
+## User Stories
+
+admin and user users can be used by default.
+Register page can be used to sign in.
+An email will be sent to user and activation link should be open in localhost server
+After activation completed user can be login by username of the mail address
+To create an account, currency code should be created
+After creating currency code while creating an account a currency code and user name should be selected.
+To send money to another user first of all user should select an account and receiver mail address and receiver account.
+Balance control will be checked. 
+To send money from credit card user should define credit cards on accounts
+After this issue user can transfer money to its account.
 
 [Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.4.1/development/
 [Service Discovery and Configuration with the JHipster-Registry]: https://jhipster.github.io/documentation-archive/v4.4.1/microservices-architecture/#jhipster-registry
